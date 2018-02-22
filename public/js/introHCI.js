@@ -8,8 +8,15 @@ $(document).ready(function() {
 /*
  * Function that is called when the document is ready.
  */
-function initializePage() {
-	$(".likeBtn").click(function(){
+
+function clickLikeBtn(e) { 
+    // prevent the page from reloading      
+    e.preventDefault();
+    ga('create','UA-114573259-1','auto');
     ga('send', 'event', 'like', 'click');
-});
+    
 }
+
+function initializePage() {
+	$(".likeBtn").click(clickLikeBtn);
+};
